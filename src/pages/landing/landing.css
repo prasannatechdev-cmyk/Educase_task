@@ -1,0 +1,52 @@
+
+
+
+.landing-container {
+  width: 375px;
+  height: 610px;
+  margin: 10px auto;
+  background: #f7f8f9;
+  padding: 20px;
+  border-left:1px solid rgb(231, 227, 227);
+  border-right:1px solid rgb(231, 227, 227);
+  
+
+}
+
+.landing-content {
+  margin-top: 350px;
+  
+}
+
+.landing-content h1 {
+  font-size: 28px;
+  color: #1d2226;
+}
+
+.landing-content p {
+  color: #6c757d;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.create-btn {
+  width: 100%;
+  height: 46px;
+  border: none;
+  border-radius: 6px;
+  background: #6c25ff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-btn {
+  width: 100%;
+  height: 46px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #cebafb;
+  font-weight: 600;
+  cursor: pointer;
+}
