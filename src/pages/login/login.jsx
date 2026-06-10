@@ -1,16 +1,25 @@
 // import "./login.css";
-
 // import { useNavigate } from "react-router-dom";
+// import { useState } from "react";
+// import { validateLogin } from "./login.validation.js";
 
-// export default function Login() {
-
+// function Login() {
 //   const navigate = useNavigate();
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [errors, setErrors] = useState({});
+
+//   const handleSubmit = () => {
+//     const validationErrors = validateLogin(email, password);
+//     setErrors(validationErrors);
+//     if (Object.keys(validationErrors).length === 0) {
+//       navigate("/profile");
+//     }
+//   };
 
 //   return (
 //     <div className="login-page">
-
 //       <div className="login-card">
-
 //         <h1>
 //           Signin to your <br />
 //           PopX account
@@ -23,63 +32,59 @@
 //         </p>
 
 //         <div className="input-wrapper">
-
 //           <label>Email Address</label>
 
 //           <input
 //             type="email"
 //             placeholder="Enter email address"
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
 //           />
 
+//           {errors.email && <span className="error">* {errors.email}</span>}
 //         </div>
 
 //         <div className="input-wrapper">
-
 //           <label>Password</label>
 
 //           <input
 //             type="password"
 //             placeholder="Enter password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
 //           />
 
+//           {errors.password && (
+//             <span className="error">* {errors.password}</span>
+//           )}
 //         </div>
 
-//         <button
-//           className="login-btn"
-//           onClick={() => navigate("/profile")}
-//         >
+//         <button className="login-btn" onClick={handleSubmit}>
 //           Login
 //         </button>
-
 //       </div>
-
 //     </div>
 //   );
 // }
+// export default Login;
 
-
-// // -------------------------------------
-
+// --------------------------------------
 
 import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { validateLogin } from "./login";
+import { validateLogin } from "./login.validation.js";
 
-export default function Login() {
+function Login() {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = () => {
-    const validationErrors = validateLogin(
-      email,
-      password
-    );
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
+    const validationErrors = validateLogin(email, password);
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
@@ -89,7 +94,7 @@ export default function Login() {
 
   return (
     <div className="login-page">
-      <div className="login-card">
+      <form className="login-card" onSubmit={handleSubmit}>
         <h1>
           Signin to your <br />
           PopX account
@@ -108,16 +113,10 @@ export default function Login() {
             type="email"
             placeholder="Enter email address"
             value={email}
-            onChange={(e) =>
-              setEmail(e.target.value)
-            }
+            onChange={(e) => setEmail(e.target.value)}
           />
 
-          {errors.email && (
-            <span className="error">
-              * {errors.email}
-            </span>
-          )}
+          {errors.email && <span className="error">* {errors.email}</span>}
         </div>
 
         <div className="input-wrapper">
@@ -127,25 +126,20 @@ export default function Login() {
             type="password"
             placeholder="Enter password"
             value={password}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           {errors.password && (
-            <span className="error">
-              * {errors.password}
-            </span>
+            <span className="error">* {errors.password}</span>
           )}
         </div>
 
-        <button
-          className="login-btn"
-          onClick={handleSubmit}
-        >
+        <button className="login-btn" type="submit">
           Login
         </button>
-      </div>
+      </form>
     </div>
   );
 }
+
+export default Login;

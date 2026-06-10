@@ -1,9 +1,9 @@
 import './App.css';
-import Landing from './pages/landing/landing';
+import Landing from './pages/landing/landing.jsx';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import Login from './pages/login/login';
-import Signup from './pages/signup/signup';
-import Profile from './pages/profile/profile';
+import Login from './pages/login/login.jsx';
+import Signup from './pages/signup/signup.jsx';
+import Profile from './pages/profile/profile.jsx';
 
 
 

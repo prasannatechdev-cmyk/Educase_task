@@ -1,6 +1,4 @@
-
-
-import './landing.css'
+import "./landing.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
@@ -17,17 +15,11 @@ export default function Landing() {
           consectetur adipiscing elit,
         </p>
 
-        <button
-          className="create-btn"
-          onClick={() => navigate("/signup")}
-        >
+        <button className="create-btn" onClick={() => navigate("/signup")}>
           Create Account
         </button>
 
-        <button
-          className="login-btn"
-          onClick={() => navigate("/login")}
-        >
+        <button className="login-btn" onClick={() => navigate("/login")}>
           Already Registered? Login
         </button>
       </div>
