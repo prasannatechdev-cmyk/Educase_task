@@ -57,7 +57,7 @@ function Signup() {
           </label>
 
           <input
-            type="text"
+            type="number"
             placeholder="Enter phone number"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
